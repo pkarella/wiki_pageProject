@@ -1,0 +1,15 @@
+<h1>Edit list</h1>
+
+<% if @categorie.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @categorie.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @categorie do |c| %>
+  <%= c.select :title, [['Bank'],['Mechanic'],['Store'],['Campground'], ['Pet Store']] %>
+  <%= c.submit %>
+<% end %>

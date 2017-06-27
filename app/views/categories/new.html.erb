@@ -1,0 +1,18 @@
+
+<h1>New Category</h1>
+
+<% if @categorie.errors.any? %>
+  <h3>Oops there were some errors. Please try again:</h3>
+  <ul>
+    <% @categorie.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_for @categorie do |c| %>
+  <%= c.label :title %>
+  <%= c.select :title, [['Bank'],['Mechanic'],['Store'],['Campground'], ['Pet Store']] %>
+  <%= c.submit %>
+<% end %>
